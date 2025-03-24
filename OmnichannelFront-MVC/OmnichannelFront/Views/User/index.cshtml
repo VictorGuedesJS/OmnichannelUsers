@@ -1,0 +1,27 @@
+@model IEnumerable<OmnichannelFront.Models.User>
+
+<h2>Lista de Usuários</h2>
+<a asp-action="Create" class="btn btn-primary">Adicionar Novo Usuário</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName @user.LastName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@user.Id" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
